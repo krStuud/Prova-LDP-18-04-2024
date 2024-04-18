@@ -9,24 +9,33 @@ programa
 	
 	const cadeia resultadoCaminho = "C:/Users/Aluno/Documents/aluno1/Prova-LDP-18-04-2024/resultado.txt"
 	
-	inteiro n, localArquivo, contador = 11, resultado
-	cadeia textos, resultadoTexto
+	inteiro n, localArquivo, contador = 0
+	cadeia triangulo
 	
 	funcao inicio()
 	{
-	
+		
 		escreva("Informe o número desejado\n: ")
 			leia(n)
-		inteiro contador = 1
+		localArquivo = arc.abrir_arquivo(resultadoCaminho, arc.MODO_ACRESCENTAR)
+		arc.escrever_linha("\nResultado:", localArquivo)
+		arc.escrever_linha("=====================\n", localArquivo)
+		arc.fechar_arquivo(localArquivo)
 		para(inteiro i = 1; i <=n; i++){
-			escreva(i)
-			/*se(i == 1){
-				escreva(i+"\n")
+			se(i == 1){
+				localArquivo = arc.abrir_arquivo(resultadoCaminho, arc.MODO_ACRESCENTAR)
+				triangulo = ty.inteiro_para_cadeia(i, 10)
+				escreva(triangulo+"\n")
+				arc.escrever_linha(triangulo+"\n", localArquivo)
+				arc.fechar_arquivo(localArquivo)
 				
 			}senao{
-				escreva(n,i+"\n")
-				n--
-			}*/
+				localArquivo = arc.abrir_arquivo(resultadoCaminho, arc.MODO_ACRESCENTAR)
+				triangulo += ty.inteiro_para_cadeia(contador+i, 10)
+				escreva(triangulo+"\n")
+				arc.escrever_linha(triangulo+"\n", localArquivo)
+				arc.fechar_arquivo(localArquivo)
+			}
 		}
 	}
 }
@@ -36,7 +45,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 526; 
+ * @POSICAO-CURSOR = 653; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
